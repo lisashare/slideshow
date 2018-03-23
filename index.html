@@ -116,5 +116,29 @@
 		</div>
 		<script src="js/startMove.js"></script>
 		<script src="js/tools.js"></script>
+		<script type="text/javascript">
+			//获取页面元素
+			//获取大盒子
+			var oDiv = $id("box");
+			//获取上半部分
+			var oTop = $id("top");
+			//获取左右遮罩
+			var oLeft = $id("left");
+			var oRight = $id("right");
+			//获取左右按钮
+			var oBtnL = $id("btn_l");
+			var oBtnR = $id("btn_r");
+			//获取所有的大图
+			let oBigPic = oTop.getElementsByTagName("li");
+			//获取下半部分
+			let oBottom = $id('bottom');
+			//获取小图的ul
+			let oSmallUl = $id("small_ul");
+			//获取所有的小图片
+			let oSmallPic = oBottom.getElementsByTagName("li");
+			//设置小图ul的宽度
+			oSmallUl.style.width = oSmallPic.length * 
+			oSmallPic[0].offsetWidth + "px";
+		</script>
 	</body>
 </html>
