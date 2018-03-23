@@ -139,6 +139,89 @@
 			//设置小图ul的宽度
 			oSmallUl.style.width = oSmallPic.length * 
 			oSmallPic[0].offsetWidth + "px";
+			//设置大图事件
+			//给左遮罩和左按钮添加移入移出事件
+			oLeft.onmouseenter = oBtnL.onmouseenter = 
+			function(){
+				sport(oBtnL,{opacity:100});
+			}
+			oLeft.onmouseleave = oBtnL.onmouseleave = 
+			function(){
+				sport(oBtnL,{opacity:0});
+			}
+			//给右遮罩和右按钮添加移入移出事件
+			oRight.onmouseenter = oBtnR.onmouseenter = 
+			function(){
+				sport(oBtnR,{opacity:100});
+			}
+			oRight.onmouseleave = oBtnR.onmouseleave = 
+			function(){
+				sport(oBtnR,{opacity:0});
+			}
+			//定义当前图片所对应的下标
+			let nowPic = 0;
+			let timer = null;
+			//定义z-index的变量
+			let zIndex = 1;
+			init();
+			autoPlay();
+			
+			//给左按钮添加点击事件
+			oBtnL.onclick = function(){
+				nowPic --;
+				if(nowPic < 0){
+					nowPic = oBigPic.length-1;
+				}
+				init()
+			}//console.log(nowPic);
+			//给左按钮添加点击事件
+			oBtnR.onclick = function(){
+				nowPic ++;
+				if(nowPic > oBigPic.length-1){
+					nowPic = 0 ;
+				}
+				init()
+			}//console.log(nowPic);
+			//给所有的小图添加事件
+			for(let i = 0,len = oSmallPic.length;
+			i < len;i ++){
+				//给小图添加移入事件
+				oSmallPic[i].onmouseenter = function(){
+					sport(this,{"opacity":100});
+				}
+				//给小图添加移出事件
+				oSmallPic[i].onmouseleave = function(){
+					if(i!== nowPic){
+					sport(this,{"opacity":50});
+					}
+				}
+				//给小图添加点击事件
+				oSmallPic[i].onclick = function(){
+					nowPic = i;
+					init()
+				}
+			}
+			//封装图片轮播  init初始化
+			function init(){
+				//大图轮播
+				oBigPic[nowPic].style.zIndex = ++ zIndex;
+				
+				//小图轮播
+				if(nowPic === 0){
+					sport(oSmallUl,{"left":0});
+				}else if(nowPic === oSmallPic.length -1){
+					sport(oSmallUl,{"left":-(oSmallPic.length-3)*oSmallPic[0].offsetWidth});
+				}else{
+					sport(oSmallUl,{"left":-(nowPic-1)*oSmallPic[0].offsetWidth});
+				}
+				//设置所有小图初始透明度
+				//将所有小图透明度设置为50
+				for(let i = 0,len = oSmallPic.length;i < len;i ++){
+					sport(oSmallPic[1],{opacity:50});
+				}
+				//将当前小图透明度设置100%
+				sport(oSmallPic[nowPic],{opacity:100});
+			}
 		</script>
 	</body>
 </html>
