@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			li{
+				list-style: none;
+			}
+			body{
+				background: #CCCCCC;
+			}
+			#box{
+				width: 400px;
+				margin: 50px auto;
+				height: 426px;
+				overflow: hidden;
+				border: 1px solid yellow;
+			}
+			#top{
+				position: relative;
+				height: 320px;
+				
+			}
+			#top li{
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+			#left{
+				position: absolute;
+				width: 200px;
+				top: 0;
+				left: 0;
+				height: 320px;
+				z-index: 1000;
+			}
+			#right{
+				position: absolute;
+				width: 200px;
+				height: 320px;
+				top: 0;
+				right: 0;
+				z-index: 1000;
+			}
+			#btn_l{
+				position: absolute;
+				background: url(img/btn.gif) no-repeat;
+				height: 60px;
+				width: 60px;
+				left: 10px;
+				top: 130px;
+				z-index: 1001;
+				opacity: 0;
+				filter: alpha(opacity=0);
+			}
+			#btn_r{
+				position: absolute;
+				background: url(img/btn.gif) no-repeat 0 -60px;
+				height: 60px;
+				width: 60px;
+				right: 10px;
+				top: 130px;
+				z-index: 1001;
+				opacity: 0;
+				filter: alpha(opacity=0);
+			}
+			#bottom{
+				position: relative;
+				
+			}
+			#small_ul{
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+			#small_ul li{
+				float: left;
+			}
+			#small_ul img{
+				height: 90px;
+				width: 120px;
+				padding: 6px;
+			}
+		</style>
+		
+	</head>
+	<body>
+		<div id="box">
+			<ul id="top">
+				<div id="left"></div>
+				<div id="right"></div>
+				<a href="javascript:;" id="btn_l"></a>
+				<a href="javascript:;" id="btn_r"></a>
+				<li style="z-index: 1 ";><img src="img/1.jpg" /></li>
+				<li><img src="img/2.jpg"/></li>
+				<li><img src="img/3.jpg"/></li>
+				<li><img src="img/4.jpg"/></li>
+				<li><img src="img/5.jpg"/></li>
+				<li><img src="img/6.jpg"/></li>
+			</ul>
+			<div id="bottom">
+				<ul id="small_ul">
+					<li><img src="img/1.jpg"/></li>
+					<li><img src="img/2.jpg"/></li>
+					<li><img src="img/3.jpg"/></li>
+					<li><img src="img/4.jpg"/></li>
+					<li><img src="img/5.jpg"/></li>
+					<li><img src="img/6.jpg"/></li>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>
